@@ -10,7 +10,7 @@ import Foundation
 
 class Image {
     
-    let farmId : String
+    let farmId : Int
     let serverId : String
     let id : String
     let secret : String
@@ -19,11 +19,10 @@ class Image {
     
     init(json:Dictionary<String, AnyObject>) {
         
-        //TODO parse JSON
-        farmId = ""
-        serverId = ""
-        id = ""
-        secret = ""
+        farmId = json["farm"] as Int
+        serverId = json["server"] as String
+        id = json["id"] as String
+        secret = json["secret"] as String
         
         imageURL = "https://farm\(farmId).staticflickr.com/\(serverId)/\(id)_\(secret)_m.jpg"
     }

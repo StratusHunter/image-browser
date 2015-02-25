@@ -14,6 +14,6 @@ class ImageCell: UICollectionViewCell {
     
     func setupWithImage(image:Image) {
         
-        //TODO SDWebImage load image url into imageview
+        imageView.sd_setImageWithURL(NSURL(string:image.imageURL))
     }
 }

@@ -22,13 +22,11 @@ class FlickrService {
 
     func searchWithKeywords(keywords: String, onComplete: (imageList:Array<Image>?) -> Void) {
 
-        if let text = keywords.stringByReplacingPercentEscapesUsingEncoding(NSUTF8StringEncoding) {
+        if let text = keywords.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding) {
 
             let url = apiURL + text
 
             Alamofire.request(.GET, url).responseJSON {(_, _, JSON, _) in
-               
-                println(JSON)
                 
                 if let jsonObject = JSON as? Dictionary<String, AnyObject> {
                 
@@ -51,7 +49,13 @@ class FlickrService {
         
         var imageList = Array<Image>()
         
-        //TODO parse JSON
+        let photoDict = imageJSON["photos"] as Dictionary<String, AnyObject>
+        let photoArray = photoDict["photo"] as Array<Dictionary<String, AnyObject>>
+        
+        for photo in photoArray {
+        
+            imageList.append(Image(json: photo))
+        }
         
         return imageList
     }
