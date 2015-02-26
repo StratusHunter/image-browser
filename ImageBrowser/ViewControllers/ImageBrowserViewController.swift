@@ -40,7 +40,7 @@ class ImageBrowserViewController: UIViewController, UICollectionViewDelegate, UI
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        
+
         println("\(collectionView)")
         return collectionView.bounds.size
     }
