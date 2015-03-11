@@ -3,7 +3,7 @@
 //  ImageBrowser
 //
 //  Created by Terence Baker on 20/02/2015.
-//  Copyright (c) 2015 Bulb Studios. All rights reserved.
+//  Copyright (c) 2015 Terence Baker. All rights reserved.
 //
 
 import UIKit
